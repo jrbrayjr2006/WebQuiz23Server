@@ -10,7 +10,7 @@ public class Question {
 
     private double id = -1;
     private String questionText = "";
-    private List<Map<String,String>> optiopns;
+    private List<Map<String,String>> options;
     private String answerKey = "";
     private String explanation = "";
 
@@ -38,11 +38,11 @@ public class Question {
     }
 
     public List<Map<String, String>> getOptiopns() {
-        return optiopns;
+        return options;
     }
 
-    public void setOptiopns(List<Map<String, String>> optiopns) {
-        this.optiopns = optiopns;
+    public void setOptiopns(List<Map<String, String>> options) {
+        this.options = options;
     }
 
     public String getAnswerKey() {
