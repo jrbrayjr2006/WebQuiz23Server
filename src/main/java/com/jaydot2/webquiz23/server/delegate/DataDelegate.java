@@ -2,10 +2,12 @@ package com.jaydot2.webquiz23.server.delegate;
 
 import com.jaydot2.webquiz23.server.dao.DAOMongoDBImpl;
 import com.jaydot2.webquiz23.server.model.Quiz;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by jamesbray on 8/31/16.
  */
+@Component
 public class DataDelegate implements DAO {
 
     private DAO daoImpl = DAOMongoDBImpl.getInstance();
