@@ -1,0 +1,6 @@
+spring:
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    com.jaydot2.webquiz23.server: DEBUG
