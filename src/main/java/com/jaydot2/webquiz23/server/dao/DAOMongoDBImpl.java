@@ -8,8 +8,8 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.bson.Document;
 
 import java.text.DateFormat;
@@ -21,7 +21,7 @@ import java.text.SimpleDateFormat;
 public class DAOMongoDBImpl implements DAO {
 
     private static final String TAG = "DAOMongoDBImpl";
-    private static Logger LOG = LogManager.getLogger(DAOMongoDBImpl.class);
+    private static Logger LOG = LoggerFactory.getLogger(DAOMongoDBImpl.class);
 
     private MongoClient mongoClient;
     private String host = "localhost";
@@ -56,7 +56,7 @@ public class DAOMongoDBImpl implements DAO {
         LOG.debug(TAG + " ::EXIT:: setDatabaseConnection(String,int)...");
     }
 
-    @Override
+    //@Override
     public double quizCount() {
         LOG.debug(TAG + "::ENTER::");
         if(mongoClient == null) {
@@ -68,7 +68,7 @@ public class DAOMongoDBImpl implements DAO {
         return count;
     }
 
-    @Override
+    //@Override
     public boolean createQuiz(Quiz quiz) {
         LOG.debug(TAG + "::ENTER::createQuiz(Quiz)...");
         if(mongoClient == null) {

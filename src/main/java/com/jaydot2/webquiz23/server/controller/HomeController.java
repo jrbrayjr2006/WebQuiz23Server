@@ -3,8 +3,8 @@ package com.jaydot2.webquiz23.server.controller;
 import com.jaydot2.webquiz23.server.delegate.DataDelegate;
 import com.jaydot2.webquiz23.server.model.Quiz;
 import com.sun.javafx.collections.MappingChange;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -23,13 +23,17 @@ import java.util.Map;
 @EnableAutoConfiguration
 public class HomeController {
 
-    private static final Logger LOG = LogManager.getLogger(HomeController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
     private static final String TAG = "HomeController";
 
     private static final String SUCCESS = "success";
     private static final String FAIL = "fail";
 
-    private DataDelegate delegate = new DataDelegate();
+    private DataDelegate delegate;
+
+    public HomeController(DataDelegate delegate) {
+        this.delegate = delegate;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(HomeController.class, args);
@@ -56,6 +60,7 @@ public class HomeController {
         }
         boolean result = delegate.createQuiz(quiz);
         if(result == true) {
+            LOG.debug("successfull quiz creation!");
             data.put("data",SUCCESS);
         }
         LOG.debug(TAG + "::EXIT::createQuiz(String)...");
